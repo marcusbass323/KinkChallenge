@@ -1,6 +1,6 @@
 $primary-bg: #000;
 $primary-text-color: #FF3B3B;
-$primary-font-style: $primary-font-style;
+$primary-font-style: Gotham,Helvetica,Arial,sans-serif;
 $secondary-font-style: Gotham;
 
 @mixin flex-align {
@@ -88,8 +88,7 @@ p {
   font-family: $secondary-font-style;
 }
 
-input,
-textarea {
+input,textarea {
   font-size: 1rem;
   font-family: $primary-font-style;
   width: auto;
@@ -99,6 +98,7 @@ input {
   height: 2.4rem;
   padding: 0 0 0 .5rem;
   margin-bottom: 15px;
+
 }
 
 input:placeholder-shown {
@@ -181,6 +181,11 @@ li div {
   background-size: cover;
   height: 250px;
   width: 250px;
+}
+
+#user {
+
+
 }
 
 #userComment {
