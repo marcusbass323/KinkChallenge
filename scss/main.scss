@@ -1,15 +1,224 @@
 $primary-bg: #000;
 $primary-text-color: #FF3B3B;
+$primary-font-style: $primary-font-style;
+$secondary-font-style: Gotham;
 
-body {
-	background-color: $primary-bg
+@mixin flex-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
+body {
+  background-color: $primary-bg; 
+  font-family: $primary-font-style
+}
+
+#btn {
+  background-color: $primary-text-color;
+  text-shadow: 1px 1px 2px #000;
+  border: 0;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: $primary-font-style;
+  font-size: 1rem;
+  max-width: 100;
+  padding: .625rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  margin-top: 15px;
+}
+
+#commentsArea {
+  height: 400px;
+  overflow-y: scroll;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#commentsArea::-webkit-scrollbar {
+  display: none;
+}
+
+#commentValidation {
+  display: none;
+  color: $primary-text-color; 
+}
+
+h1 {
+  color: white;
+  font-family: $secondary-font-style;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#header {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+i {
+  color: $primary-text-color;
+  margin-right: 5px;
+}
+
 p {
-	color: $primary-text-color;
+  color: $primary-text-color;
+  font-family: $secondary-font-style;
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+#postDate {
+  color: $primary-text-color;
+  font-size: 12px;
+}
+
+#username {
+  font-family: $secondary-font-style;
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  font-family: $primary-font-style;
+  width: auto;
+}
+
+input {
+  height: 2.4rem;
+  padding: 0 0 0 .5rem;
+  margin-bottom: 15px;
+}
+
+input:placeholder-shown {
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+label,
+li {
+  font-family: $primary-font-style;
+  color: #fff;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: none;
+  
+}
+
+label {
+  font-family: $primary-font-style;
+  color: #fff;
+  font-size: 2.5em;
+}
+
+li {
+  color: $primary-text-color;
+  list-style: none;
+}
+
+#loremIpsum {
+  width: 100%;
+}
+
+div {
+  color: #fff;
+}
+
+li div {
+  font-family: $primary-font-style;
+  width: 600px;
+}
+
+#commentForm {
+  display: grid;
+  grid-row: auto;
+}
+
+.item1 {
+  grid-area: header;
+}
+
+.item2 {
+  grid-area: main;
+}
+
+.item3 {
+  grid-area: placeholder;
+}
+
+.item4 {
+  grid-area: form;
+}
+
+.item5 {
+  grid-area: comments;
+}
+
+.grid-container {
+  display: grid;
+  max-width: 100vw;
+  margin: 0 auto;
+  grid-template-areas: 
+  'header header header header header header' 
+  'main main main main placeholder placeholder' 
+  'form form form comments comments comments'
+}
+
+#placeholderImg {
+  background-image: url('/assets/placeholder.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 250px;
+}
+
+#userComment {
+	width: 100%;
+}
+
+#userValidation {
+  display: none;
+  color: $primary-text-color; 
+}
+
+ul {
+	-webkit-padding-start: 0;
+  width: 90%;
+}
+
+.validation {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-top: -20px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .grid-container {
+    @include flex-align()
+  }
+  .item3 {
+	  display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+	.grid-container {
+		@include flex-align()
+	  }
+	  .item3 {
+		display: none;
+	}
 }

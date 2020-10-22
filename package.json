@@ -5,14 +5,20 @@
   "main": "index.js",
   "scripts": {
     "build:sass": "node-sass -r --output-style compressed scss/main.scss -o ./public/css",
-    "watch:sass": "npm run build:sass && npm run build:sass -- -w"
+    "watch:sass": "npm run build:sass && npm run build:sass -- -w",
+    "start": "nodemon index.js"
   },
   "author": "YOURNAMEHERE <USERNAME@kink.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.2",
     "morgan": "^1.9.1",
+    "multer": "^1.4.2",
     "node-sass": "^4.13.1",
+    "nodemon": "^2.0.6",
     "nunjucks": "^3.2.0",
     "winston": "^3.2.1"
   },

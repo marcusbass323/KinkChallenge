@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>{{ pageTitle }}</title>
-	<link rel="stylesheet" href="/css/main.css"/>
-</head>
-<body>
-	{% block content %}{% endblock %}
-<footer>
-	{% block footer %}{% endblock %}
-</footer>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <div class="item1">{% include "./header.njk" %}</div>
+      <div class="item2">{% include "./main.njk" %}</div>
+      <div class="item3">{% include "./placeholder.njk" %}</div>
+      <div class="item4">{% include "./form.njk" %}</div>
+      <div class="item5">{% include "./comments.njk" %}</div>
+    </div>
+  </body>
 </html>

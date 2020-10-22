@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+
+  <body class="comments">
+    <div id="commentsArea">
+      <ul id="list"></ul>
+    </div>
+    <script>
+
+      let comments;
+	  //Need to replace with live server
+      fetch("http://localhost:3000/comments")
+	  .then(response => response.json())
+	  .then(data => comments = data)
+	  .then(() => {
+        comments.forEach((comment) => {
+          let ul = document.getElementById('list');
+          let body = document.getElementById("body")
+          let li = document.createElement("li");
+          li.setAttribute("id", "username");
+          div = document.createElement('div')
+          div.setAttribute("id", "userComment");
+          div2 = document.createElement('div')
+          div2.setAttribute("id", "postDate");
+          li.innerHTML = `${comment.username}`
+          div.innerHTML = `${comment.comments}`
+          div2.innerHTML = 'Posted: ' + moment().format('MMMM Do YYYY');
+          ul.appendChild(li);
+          li.appendChild(div);
+          div.appendChild(div2);
+        })
+      }).catch(function (error) {});
+    </script>
+  </body>
+</html>

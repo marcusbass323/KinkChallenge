@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/main.css"/>
+<script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+<script src="https://kit.fontawesome.com/58669898fe.js" crossorigin="anonymous"></script>
+</head>
+<body>
+ <form action="/comments" method="POST" id="commentForm">
+ <h1>Username</h1>
+    <div class="validation">  
+    <div id="userValidation"><i class="fas fa-exclamation-triangle fa-xs"></i>Username is required</div>
+    </div>
+    <input onfocus="userFocus()" type="text" id="user" name="username" placeholder="Your username">
+    <h1>Comment</h1>
+    <div class="validation"> 
+    <div id="commentValidation"><i class="fas fa-exclamation-triangle fa-xs"></i>Comment is required</div>
+    </div>
+    <textarea onfocus="commentsFocus()" id="comments" rows="10" cols="50" name="comments" placeholder="Your comment"></textarea>
+    <button id="btn" type="submit" onclick="post()">Submit</button>
+  </form>
+  <script>
+
+  let btn = document.getElementById('btn')
+      document.getElementById('commentForm').oninput = () => {
+            let username = document.getElementById('user').value
+            let comments = document.getElementById('comments').value
+            if(username && comments ){
+              btn.disabled = false
+              btn.style.backgroundColor = '#d72029'
+            }
+   }
+userFocus = () => {
+  document.getElementById('userValidation').style.display = "none"
+}   
+
+commentsFocus = () => {
+  document.getElementById('commentValidation').style.display = "none"
+}
+
+
+function post(){
+    var username = document.getElementById('user').value
+    var comments = document.getElementById('comments').value
+    var btn = document.getElementById('btn')
+    if(!username && !comments ){
+      btn.disabled = true
+      btn.style.backgroundColor = 'grey';
+      document.getElementById('userValidation').style.display = "block"
+      document.getElementById('commentValidation').style.display = "block"
+    } else{
+      document.getElementById('userValidation').style.display = "none"
+      document.getElementById('commentValidation').style.display = "none"
+    }
+//Clear form one-second after submission
+setTimeout(() =>{ 
+  document.getElementById("commentForm").reset(); 
+  }, 1000);
+}
+</script>
+</body>
+</html>
+
